@@ -14,10 +14,11 @@ bp = Blueprint('main', __name__, url_prefix='/')
 def index():
     form = ContactForm()
 
-        if request.method == 'POST' and form.validate_on_submit():
-            contact = Contact(name=form.name.data, number=form.number.data, create_date=datetime.now())
-            db.session.add(contact)
-            db.session.commit()
+    if request.method == 'POST' and form.validate_on_submit():
+        contact = Contact(name=form.name.data, number=form.number.data, create_date=datetime.now())
+        db.session.add(contact)
+        db.session.commit()
+        
         return redirect(url_for('main.index'))
 
     return render_template("index.html", form=form)
