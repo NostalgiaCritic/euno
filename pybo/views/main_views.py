@@ -50,7 +50,7 @@ def send_email(senders, receiver, name, number):
     try:
         context = ssl.create_default_context()
 
-        message = "신청자 :" + name + ", 번호:" + number
+        message = "신청자 :" + name + ", 전화번호:" + number
 
         em = EmailMessage()
         em.set_content(message)
